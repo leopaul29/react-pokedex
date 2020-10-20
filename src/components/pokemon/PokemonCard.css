@@ -1,8 +1,10 @@
 .pokemonCard {
+    background-color: purple;
+    flex-basis: 20%;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     align-items: center;
-    height: 100px;
-    flex: 1 0 20%;
+    justify-content: space-around;
+    text-align: center;
 }
