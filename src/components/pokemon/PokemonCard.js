@@ -10,11 +10,25 @@ const Sprite = styled.img`
   display: none;
 `;
 
+const Card = styled.div`
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0, s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  -moz-user-sekect: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+`;
+
 export default class PokemonCard extends Component {
   state = {
     name: "",
     imageUrl: "",
     pkoemonIndex: "",
+    imageLoading: true,
+    toManyRequests: false,
   };
 
   componentDidMount() {
@@ -27,14 +41,14 @@ export default class PokemonCard extends Component {
 
   render() {
     return (
-      <div className="pokemonCard">
+      <Card className="pokemonCard">
         <div className="pokemonCard__header">
           <h5>{this.state.pokemonIndex}</h5>
         </div>
         <div className="pokemonCard__body">
           {this.state.imageLoading ? <CircularProgress /> : null}
           <Sprite
-            className="pokemonCard__header__image"
+            className="pokemonCard__image"
             onLoad={() => this.setState({ imageLoading: false })}
             onError={() => this.setState({ toManyRequests: true })}
             src={this.state.imageUrl}
@@ -53,7 +67,7 @@ export default class PokemonCard extends Component {
           ) : null}
           <h6 className="pokemonCard__title">{this.state.name}</h6>
         </div>
-      </div>
+      </Card>
     );
   }
 }

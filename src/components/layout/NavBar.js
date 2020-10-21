@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import './NavBar.css'
+import "./NavBar.css";
 
 function NavBar() {
   return (
-    <nav className="navBar">
-      <a href="">Pokedex</a>
-    </nav>
+    <div className="nav">
+      <a href="#" className="nav__item">
+        Pokedex
+      </a>
+    </div>
   );
 }
 

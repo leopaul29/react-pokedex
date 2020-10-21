@@ -1,6 +1,4 @@
 .pokemonList {
-    background-color: green;
-    padding-top: 25px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

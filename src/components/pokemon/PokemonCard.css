@@ -1,10 +1,24 @@
 .pokemonCard {
-    background-color: purple;
-    flex-basis: 20%;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
+  background-color: white;
+  flex-basis: 20%;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.pokemonCard__header {
+  background-color: lightgray;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.pokemonCard__title {
+  text-align: center;
+  padding: 3px;
 }

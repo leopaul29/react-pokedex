@@ -1,4 +1,10 @@
-nav {
-    position: fixed;
-    background-color: red;
+.nav {
+  background-color: #ef5350;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.nav__item {
+  text-decoration: none;
+  color: white;
 }
