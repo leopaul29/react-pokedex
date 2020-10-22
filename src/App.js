@@ -1,14 +1,17 @@
-import React from 'react';
-import './App.css';
-import Dashboard from './components/layout/Dashboard';
-import NavBar from './components/layout/NavBar';
+import React from "react";
+import "./App.css";
+import Dashboard from "./components/layout/Dashboard";
+import NavBar from "./components/layout/NavBar";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="app">
-      <NavBar/>
-      <Dashboard/>
-    </div>
+    <Router>
+      <div className="app">
+        <NavBar />
+        <Dashboard />
+      </div>
+    </Router>
   );
 }
 
