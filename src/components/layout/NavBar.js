@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import "./NavBar.css";
 
 function NavBar() {
   return (
     <div className="nav">
-      <a href="#" className="nav__item">
+      <Link to="#" className="nav__item">
         Pokedex
-      </a>
+      </Link>
     </div>
   );
 }

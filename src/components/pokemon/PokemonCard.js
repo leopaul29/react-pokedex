@@ -43,7 +43,7 @@ export default class PokemonCard extends Component {
   render() {
     return (
       <div className="pokemonCard__frame">
-        <Link to="pokemon/1">
+        <Link to={`pokemon/${this.state.pokemonIndex}`}>
           <Card className="pokemonCard">
             <div className="pokemonCard__header">
               <h5>{this.state.pokemonIndex}</h5>
