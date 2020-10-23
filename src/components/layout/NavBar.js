@@ -6,7 +6,7 @@ import "./NavBar.css";
 function NavBar() {
   return (
     <div className="nav">
-      <Link to="#" className="nav__item">
+      <Link to="/" className="nav__item">
         Pokedex
       </Link>
     </div>
