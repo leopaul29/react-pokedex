@@ -148,6 +148,32 @@ export default class Pokemon extends Component {
   render() {
     return (
       <div className="pokemonCard">
+        <div className="pokemonCard__header">
+          <div className="pokemonCard__headerLeft">
+            <h5>{this.state.pokemonIndex}</h5>
+          </div>
+          <div className="pokemonCard__headerRight">
+            {this.state.types.map((type) => (
+              <Chip
+                size="small"
+                label={type}
+                key={type}
+                style={{
+                  backgroundColor: `#${TYPE_COLORS[type]}`,
+                  color: "white",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="pokemonCard__body">
+          <div className="pokemonCard__image">
+            <img src={this.state.imageUrl} alt="" />
+          </div>
+          <div className="pokemonCard__description">
+            <h4>{this.state.name}</h4>
+          </div>
+        </div>
       </div>
     );
   }
