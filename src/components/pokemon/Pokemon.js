@@ -2,6 +2,31 @@ import React, { Component } from "react";
 import axios from "axios";
 import Chip from "@material-ui/core/Chip";
 
+import {
+  makeStyles,
+  createStyles,
+  withStyles,
+  Theme,
+} from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const BorderLinearProgress = withStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      height: 20,
+      borderRadius: 5,
+    },
+    colorPrimary: {
+      backgroundColor:
+        theme.palette.grey[theme.palette.type === "light" ? 200 : 700],
+    },
+    bar: {
+      borderRadius: 5,
+      backgroundColor: "#1a90ff",
+    },
+  })
+)(LinearProgress);
+
 const TYPE_COLORS = {
   bug: "B1C12E",
   dark: "4F3A2D",
@@ -105,7 +130,7 @@ export default class Pokemon extends Component {
       pokemonIndex,
       name,
       types,
-      state: { hp, attack, defense, speed, specialAttack, specialDefense },
+      stats: { hp, attack, defense, speed, specialAttack, specialDefense },
       height,
       weight,
       abilities,
@@ -170,9 +195,117 @@ export default class Pokemon extends Component {
           <div className="pokemonCard__image">
             <img src={this.state.imageUrl} alt="" />
           </div>
-          <div className="pokemonCard__description">
+          <div className="pokemonCard__stats">
             <h4>{this.state.name}</h4>
+            <div className="stat">
+              <div className="stat__name">HP</div>
+              <div className="stat__progress">
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={this.state.stats.hp}
+                />
+              </div>
+            </div>
+            <div className="stat">
+              <div className="stat__name">Attack</div>
+              <div className="stat__progress">
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={this.state.stats.attack}
+                />
+              </div>
+            </div>
+            <div className="stat">
+              <div className="stat__name">Defense</div>
+              <div className="stat__progress">
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={this.state.stats.defense}
+                />
+              </div>
+            </div>
+            <div className="stat">
+              <div className="stat__name">Speed</div>
+              <div className="stat__progress">
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={this.state.stats.speed}
+                />
+              </div>
+            </div>
+            <div className="stat">
+              <div className="stat__name">Special Attack</div>
+              <div className="stat__progress">
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={this.state.stats.specialAttack}
+                />
+              </div>
+            </div>
+            <div className="stat">
+              <div className="stat__name">Special Defense</div>
+              <div className="stat__progress">
+                <BorderLinearProgress
+                  variant="determinate"
+                  value={this.state.stats.specialDefense}
+                />
+              </div>
+            </div>
           </div>
+          <div className="pokemonCard__description">
+            <p>{this.state.description}</p>
+          </div>
+          <hr />
+          <div className="pokemonCard__profile">
+            <h5>Profile</h5>
+            <div className="profile__left">
+              <div className="profile">
+                <div className="profile__title">Height:</div>
+                <div className="profile__value">{this.state.height} cm.</div>
+              </div>
+              <div className="profile">
+                <div className="profile__title">Weight:</div>
+                <div className="profile__value">{this.state.weight} kg.</div>
+              </div>
+              <div className="profile">
+                <div className="profile__title">Catch Rate:</div>
+                <div className="profile__value">{this.state.catchRate}%</div>
+              </div>
+              <div className="profile">
+                <div className="profile__title">Gender Ratio:</div>
+                <div className="profile__value">
+                  <BorderLinearProgress
+                    variant="determinate"
+                    value={this.state.genderRatioFemale}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="profile__right">
+              <div className="profile">
+                <div className="profile__title">Egg Groups:</div>
+                <div className="profile__value">{this.state.eggGroups}</div>
+              </div>
+              <div className="profile">
+                <div className="profile__title">Hatch Steps:</div>
+                <div className="profile__value">{this.state.hatchSteps}</div>
+              </div>
+              <div className="profile">
+                <div className="profile__title">Abilities:</div>
+                <div className="profile__value">{this.state.abilities}</div>
+              </div>
+              <div className="profile">
+                <div className="profile__title">EVs:</div>
+                <div className="profile__value">{this.state.evs}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="pokemonCard__footer">
+          Data From{" "}
+          <a href="https://pokeapi.co" target="_blank">
+            PokeAPI.co
+          </a>
         </div>
       </div>
     );
