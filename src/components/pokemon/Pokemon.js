@@ -26,6 +26,9 @@ const BorderLinearProgress = withStyles((theme: Theme) =>
     },
   })
 )(LinearProgress);
+const MIN = 0;
+const MAX = 255;
+const normalize = value => ((value - MIN) * 100) / (MAX - MIN);
 
 const TYPE_COLORS = {
   bug: "B1C12E",
@@ -112,7 +115,7 @@ export default class Pokemon extends Component {
     // converts to cm
     const height = pokemonRes.data.height * 10;
     // converts to kg
-    const weight = pokemonRes.data.weight * 10;
+    const weight = pokemonRes.data.weight;
     const types = pokemonRes.data.types.map((type) => type.type.name);
     const abilities = pokemonRes.data.abilities.map((ability) => {
       return ability.ability.name;
@@ -172,12 +175,12 @@ export default class Pokemon extends Component {
 
   render() {
     return (
-      <div className="pokemonCard">
-        <div className="pokemonCard__header">
-          <div className="pokemonCard__headerLeft">
+      <div className="pokemon">
+        <div className="pokemon__header">
+          <div className="pokemon__headerLeft">
             <h5>{this.state.pokemonIndex}</h5>
           </div>
-          <div className="pokemonCard__headerRight">
+          <div className="pokemon__headerRight">
             {this.state.types.map((type) => (
               <Chip
                 size="small"
@@ -191,18 +194,18 @@ export default class Pokemon extends Component {
             ))}
           </div>
         </div>
-        <div className="pokemonCard__body">
-          <div className="pokemonCard__image">
+        <div className="pokemon__body">
+          <div className="pokemon__image">
             <img src={this.state.imageUrl} alt="" />
           </div>
-          <div className="pokemonCard__stats">
+          <div className="pokemon__stats">
             <h4>{this.state.name}</h4>
             <div className="stat">
               <div className="stat__name">HP</div>
               <div className="stat__progress">
                 <BorderLinearProgress
                   variant="determinate"
-                  value={this.state.stats.hp}
+                  value={normalize(this.state.stats.hp)}
                 />
               </div>
             </div>
@@ -211,7 +214,7 @@ export default class Pokemon extends Component {
               <div className="stat__progress">
                 <BorderLinearProgress
                   variant="determinate"
-                  value={this.state.stats.attack}
+                  value={normalize(this.state.stats.attack)}
                 />
               </div>
             </div>
@@ -220,7 +223,7 @@ export default class Pokemon extends Component {
               <div className="stat__progress">
                 <BorderLinearProgress
                   variant="determinate"
-                  value={this.state.stats.defense}
+                  value={normalize(this.state.stats.defense)}
                 />
               </div>
             </div>
@@ -229,7 +232,7 @@ export default class Pokemon extends Component {
               <div className="stat__progress">
                 <BorderLinearProgress
                   variant="determinate"
-                  value={this.state.stats.speed}
+                  value={normalize(this.state.stats.speed)}
                 />
               </div>
             </div>
@@ -238,7 +241,7 @@ export default class Pokemon extends Component {
               <div className="stat__progress">
                 <BorderLinearProgress
                   variant="determinate"
-                  value={this.state.stats.specialAttack}
+                  value={normalize(this.state.stats.specialAttack)}
                 />
               </div>
             </div>
@@ -247,16 +250,16 @@ export default class Pokemon extends Component {
               <div className="stat__progress">
                 <BorderLinearProgress
                   variant="determinate"
-                  value={this.state.stats.specialDefense}
+                  value={normalize(this.state.stats.specialDefense)}
                 />
               </div>
             </div>
           </div>
-          <div className="pokemonCard__description">
+          <div className="pokemon__description">
             <p>{this.state.description}</p>
           </div>
           <hr />
-          <div className="pokemonCard__profile">
+          <div className="pokemon__profile">
             <h5>Profile</h5>
             <div className="profile__left">
               <div className="profile">
@@ -301,7 +304,7 @@ export default class Pokemon extends Component {
             </div>
           </div>
         </div>
-        <div className="pokemonCard__footer">
+        <div className="pokemon__footer">
           Data From{" "}
           <a href="https://pokeapi.co" target="_blank">
             PokeAPI.co
