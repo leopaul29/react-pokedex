@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Chip from "@material-ui/core/Chip";
+import pokedex from '../../pokedex.png'
 
 import {
   makeStyles,
@@ -175,6 +176,10 @@ export default class Pokemon extends Component {
 
   render() {
     return (
+      <>
+      <div className="pokedexFrame">
+        <img src={pokedex} alt=""/>
+      </div>
       <div className="pokemon">
         <div className="pokemon__header">
           <div className="pokemon__headerLeft">
@@ -311,6 +316,7 @@ export default class Pokemon extends Component {
           </a>
         </div>
       </div>
+      </>
     );
   }
 }
