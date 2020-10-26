@@ -6,6 +6,8 @@ import Dashboard from "./components/layout/Dashboard";
 import NavBar from "./components/layout/NavBar";
 import Pokemon from "./components/pokemon/Pokemon";
 
+import "../node_modules/bulma/css/bulma.css"
+
 class App extends Component {
   render() {
     return (
