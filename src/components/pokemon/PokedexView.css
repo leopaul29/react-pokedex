@@ -1,0 +1,33 @@
+.pokedexFrame {
+  width: 700px;
+}
+.pokedexFrame__image, .pokedexFrame__index, .pokedexFrame__name {
+    background-color: yellow;
+    z-index: 1;
+    position: relative;
+}
+.pokedexFrame__image {
+  top: 160px;
+  left: 120px;
+}
+.pokedexFrame__image > img {
+  height: 130px;
+  width: 130px;
+}
+
+.pokedexFrame__index {
+  top: 310px;
+  left: 100px;
+}
+
+.pokedexFrame__index > h5 {
+  font-weight: bold;
+}
+
+.pokedexFrame__name {
+    top: 425px;
+    left: 100px;
+}
+.pokedexFrame__name > h4 {
+    font-weight: bolder;
+}
