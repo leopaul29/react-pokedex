@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/layout/Dashboard";
 import NavBar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
 import Pokemon from "./components/pokemon/Pokemon";
-
-// import "../node_modules/bulma/css/bulma.css"
 
 class App extends Component {
   render() {
@@ -20,6 +19,7 @@ class App extends Component {
               <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
             </Switch>
           </main>
+          <Footer />
         </div>
       </Router>
     );

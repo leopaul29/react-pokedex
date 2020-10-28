@@ -1,13 +1,12 @@
-nav {
+footer {
   display: flex;
   align-items: center;
-  border-bottom: 3px solid #CC0000;
+  border-top: 3px solid #cc0000;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
-
-.navbar__title {
+.footer__apiLink {
   text-decoration: none;
-  color: #CC0000;
+  color: #cc0000;
   font-weight: bold;
 }

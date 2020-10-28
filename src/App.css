@@ -2,14 +2,15 @@
   margin: 0;
 }
 
-.app {  
-  height: 100vh;;
+.app {
+  min-height: 100vh;
   max-width: 1300px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
-
 .container {
-
+  flex-grow: 1;
 }
 
 a {
