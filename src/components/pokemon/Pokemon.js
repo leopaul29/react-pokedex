@@ -2,14 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Chip from "@material-ui/core/Chip";
 import "./Pokemon.css";
-import pokedex from "../../pokedex.png";
 
-import {
-  makeStyles,
-  createStyles,
-  withStyles,
-  Theme,
-} from "@material-ui/core/styles";
+import { createStyles, withStyles, Theme } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 const BorderLinearProgress = withStyles((theme: Theme) =>
