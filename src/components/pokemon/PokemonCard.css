@@ -1,10 +1,63 @@
-.pokemonCard__frame {
+.MuiCircularProgress-root {
+  color: #CC0000 !important;
+}
+
+.pokemonCard {
+  margin: 1rem;
+  width: 200px;
+  height: 200px;
+  perspective: 500px;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.pokemonCard:hover .content {
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  background: #CC0000;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  transform: rotateY( 180deg );
+}
+
+.pokemonCard__title {
+  text-transform: capitalize;
+}
+
+/* .pokemonCard {
   padding: .75rem;
 }
 
 .pokemonCard {
   margin: 1rem;
-} 
+}  */
 /* .pokemonCard__frame {
   background-color: yellow;
   flex-basis: 25%;

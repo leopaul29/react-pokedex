@@ -5,11 +5,11 @@ import "./NavBar.css";
 
 function NavBar() {
   return (
-    <div className="nav">
-      <Link to="/" className="nav__item">
+    <nav className="navbar">
+      <Link to="/" className="navbar__title">
         Pokedex
       </Link>
-    </div>
+    </nav>
   );
 }
 

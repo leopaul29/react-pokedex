@@ -1,11 +1,13 @@
-.nav {
-  background-color: #ef5350;
-  padding: 10px;
+.navbar {
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid #CC0000;
+  padding: 15px;
   margin-bottom: 15px;
 }
 
-.nav__item {
+.navbar__title {
   text-decoration: none;
-  color: white;
+  color: #CC0000;
   font-weight: bold;
 }

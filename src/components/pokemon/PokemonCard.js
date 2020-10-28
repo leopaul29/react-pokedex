@@ -42,10 +42,38 @@ export default class PokemonCard extends Component {
 
   render() {
     return (
-      <div className="pokemonCard__frame tile is-3">
+      <div className="pokemonCard">
         <Link to={`pokemon/${this.state.pokemonIndex}`}>
-          <Card className="pokemonCard card">
-            <div className="pokemonCard__body">
+          <div class="content">
+            <div class="front">
+            {this.state.imageLoading ? <CircularProgress /> : null}
+              <Sprite
+                className="pokemonCard__image"
+                onLoad={() => this.setState({ imageLoading: false })}
+                onError={() => this.setState({ toManyRequests: true })}
+                src={this.state.imageUrl}
+                style={
+                  this.state.toManyRequests
+                    ? { display: "none" }
+                    : this.state.imageLoading
+                    ? null
+                    : { display: "block" }
+                }
+              />
+              {this.state.toManyRequests ? (
+                <h6>
+                  <span>To Many Request</span>
+                </h6>
+              ) : null}
+            </div>
+            <div class="back">
+              <p>No:{this.state.pokemonIndex}</p>
+              <p className="pokemonCard__title">{this.state.name}</p>
+            </div>
+          </div>
+          {/* <Card className="pokemonCard card"> */}
+          {/* <div className="pokemonCard__content">
+            <div className="pokemonCard__front">
               {this.state.imageLoading ? <CircularProgress /> : null}
               <Sprite
                 className="pokemonCard__image"
@@ -65,10 +93,12 @@ export default class PokemonCard extends Component {
                   <span>To Many Request</span>
                 </h6>
               ) : null}
-              <h5>No:{this.state.pokemonIndex}</h5>
-              <h6 className="pokemonCard__title title">{this.state.name}</h6>
+              <p>No:{this.state.pokemonIndex}</p>
+              <p className="pokemonCard__title title">{this.state.name}</p>
             </div>
-          </Card>
+            <div className="pokemonCard__frontback">back</div>
+          </div> */}
+          {/* </Card> */}
         </Link>
       </div>
     );

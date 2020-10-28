@@ -6,7 +6,7 @@ import Dashboard from "./components/layout/Dashboard";
 import NavBar from "./components/layout/NavBar";
 import Pokemon from "./components/pokemon/Pokemon";
 
-import "../node_modules/bulma/css/bulma.css"
+// import "../node_modules/bulma/css/bulma.css"
 
 class App extends Component {
   render() {
@@ -14,12 +14,12 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavBar />
-          <div className="container">
+          <main className="container">
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />
             </Switch>
-          </div>
+          </main>
         </div>
       </Router>
     );
