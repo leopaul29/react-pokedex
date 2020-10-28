@@ -44,8 +44,8 @@ export default class PokemonCard extends Component {
     return (
       <div className="pokemonCard">
         <Link to={`pokemon/${this.state.pokemonIndex}`}>
-          <div class="content">
-            <div class="front">
+          <div class="pokemonCard__content">
+            <div class="pokemonCard__front">
             {this.state.imageLoading ? <CircularProgress /> : null}
               <Sprite
                 className="pokemonCard__image"
@@ -66,7 +66,7 @@ export default class PokemonCard extends Component {
                 </h6>
               ) : null}
             </div>
-            <div class="back">
+            <div class="pokemonCard__back">
               <p>No:{this.state.pokemonIndex}</p>
               <p className="pokemonCard__title">{this.state.name}</p>
             </div>
