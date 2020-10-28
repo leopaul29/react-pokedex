@@ -1,6 +1,13 @@
 .pokemonCard__frame {
-  background-color: white;
-  flex-basis: 20%;
+  padding: .75rem;
+}
+
+.pokemonCard {
+  margin: 1rem;
+} 
+/* .pokemonCard__frame {
+  background-color: yellow;
+  flex-basis: 25%;
   margin-bottom: 10px;
   border: 1px solid black;
   display: flex;
@@ -25,4 +32,10 @@
 .pokemonCard__title {
   text-align: center;
   padding: 3px;
-}
+} 
+
+
+
+column is-one-quarter
+
+*/

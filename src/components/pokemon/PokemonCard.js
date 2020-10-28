@@ -12,15 +12,15 @@ const Sprite = styled.img`
 `;
 
 const Card = styled.div`
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0, s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
-  -moz-user-sekect: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -o-user-select: none;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  // transition: all 0, s cubic-bezier(0.25, 0.8, 0.25, 1);
+  // &:hover {
+  //   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  // }
+  // -moz-user-sekect: none;
+  // -webkit-user-select: none;
+  // user-select: none;
+  // -o-user-select: none;
 `;
 
 export default class PokemonCard extends Component {
@@ -42,12 +42,9 @@ export default class PokemonCard extends Component {
 
   render() {
     return (
-      <div className="pokemonCard__frame">
+      <div className="pokemonCard__frame tile is-3">
         <Link to={`pokemon/${this.state.pokemonIndex}`}>
-          <Card className="pokemonCard">
-            <div className="pokemonCard__header">
-              <h5>{this.state.pokemonIndex}</h5>
-            </div>
+          <Card className="pokemonCard card">
             <div className="pokemonCard__body">
               {this.state.imageLoading ? <CircularProgress /> : null}
               <Sprite
@@ -68,7 +65,8 @@ export default class PokemonCard extends Component {
                   <span>To Many Request</span>
                 </h6>
               ) : null}
-              <h6 className="pokemonCard__title">{this.state.name}</h6>
+              <h5>No:{this.state.pokemonIndex}</h5>
+              <h6 className="pokemonCard__title title">{this.state.name}</h6>
             </div>
           </Card>
         </Link>
