@@ -6,6 +6,7 @@
 }
 .pokemon__type {
   margin-left: 5px;
+  text-transform: capitalize;
 }
 
 .pokemon__primaryInfo {
@@ -52,6 +53,7 @@
   padding: 1rem;
 }
 .profile {
+  text-transform: capitalize;
   padding-bottom: 5px;
 }
 .profile__title {

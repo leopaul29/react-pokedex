@@ -1,5 +1,8 @@
 .pokemonList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.MuiLinearProgress-colorPrimary {
+  background-color: rgb(204, 0, 0, .2) !important;
 }

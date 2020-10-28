@@ -1,26 +1,58 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import "./PokemonList.css";
-import { Link } from "react-router-dom";
+import Pagination from "./Pagination";
+import { LinearProgress } from "@material-ui/core";
 
-export default class PokemonList extends Component {
-  state = {
-    url: "https://pokeapi.co/api/v2/pokemon/",
-    pokemon: null,
-  };
+function PokemonList() {
+  const [pokemon, setPokemon] = useState([]);
+  const [currentPageUrl, setCurrentPageUrl] = useState(
+    "https://pokeapi.co/api/v2/pokemon/"
+  );
+  const [nextPageUrl, setNextPageUrl] = useState();
+  const [pervPageUrl, setPervPageUrl] = useState();
+  const [loading, setLoading] = useState(true);
 
-  async componentDidMount() {
-    const res = await axios.get(this.state.url);
-    this.setState({ pokemon: res.data.results });
+  useEffect(() => {
+    setLoading(true);
+    let cancel;
+    axios
+      .get(currentPageUrl, {
+        // cancel request if we do a new one
+        cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      })
+      .then((res) => {
+        setLoading(false);
+        setPokemon(res.data.results);
+        setNextPageUrl(res.data.next);
+        setPervPageUrl(res.data.previous);
+      });
+
+    return () => cancel();
+  }, [currentPageUrl]);
+
+  if (loading) {
+    return  <LinearProgress />
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        {this.state.pokemon ? (
-          <div className="pokemonList ">
-            {this.state.pokemon.map((pokemon) => (
+  function gotoNextPage() {
+    setCurrentPageUrl(nextPageUrl);
+  }
+  function gotoPrevPage() {
+    setCurrentPageUrl(pervPageUrl);
+  }
+
+  return (
+    <>
+      {pokemon ? (
+        <>
+          <Pagination
+            gotoNextPage={nextPageUrl ? gotoNextPage : null}
+            gotoPrevPage={pervPageUrl ? gotoPrevPage : null}
+          />
+          <div className="pokemonList">
+            {pokemon.map((pokemon) => (
               <PokemonCard
                 key={pokemon.name}
                 name={pokemon.name}
@@ -28,10 +60,14 @@ export default class PokemonList extends Component {
               />
             ))}
           </div>
-        ) : (
-          <h1>Loading Pokemon</h1>
-        )}
-      </React.Fragment>
-    );
-  }
+        </>
+      ) : (
+        <div className="pokemonList__loading">
+         
+        </div>
+      )}
+    </>
+  );
 }
+
+export default PokemonList;
