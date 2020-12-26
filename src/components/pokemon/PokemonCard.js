@@ -7,7 +7,7 @@ export default class PokemonCard extends Component {
   state = {
     name: "",
     imageUrl: "",
-    pkoemonIndex: "",
+    pokemonIndex: "",
     imageLoading: true,
     toManyRequests: false,
   };
@@ -39,6 +39,7 @@ export default class PokemonCard extends Component {
                     ? null
                     : { display: "block" }
                 }
+                alt={this.state.name}
               />
               {this.state.toManyRequests ? (
                 <h6>

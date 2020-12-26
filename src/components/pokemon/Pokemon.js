@@ -106,7 +106,10 @@ export default class Pokemon extends Component {
         case "special-defense":
           specialDefense = stat["base_stat"];
           break;
+        default:
+          return null
       }
+      return null
     });
     // converts to cm
     const height = pokemonRes.data.height * 10;
@@ -142,8 +145,9 @@ export default class Pokemon extends Component {
       res.data.flavor_text_entries.some((flavor) => {
         if (flavor.language.name === "en") {
           description = flavor.flavor_text;
-          return;
+          return null;
         }
+        return null
       });
 
       const femaleRate = res.data["gender_rate"];
