@@ -33,7 +33,7 @@ function PokemonList() {
   }, [currentPageUrl]);
 
   if (loading) {
-    return  <LinearProgress />
+    return <LinearProgress />;
   }
 
   function gotoNextPage() {
@@ -47,10 +47,6 @@ function PokemonList() {
     <>
       {pokemon ? (
         <>
-          <Pagination
-            gotoNextPage={nextPageUrl ? gotoNextPage : null}
-            gotoPrevPage={pervPageUrl ? gotoPrevPage : null}
-          />
           <div className="pokemonList">
             {pokemon.map((pokemon) => (
               <PokemonCard
@@ -62,10 +58,12 @@ function PokemonList() {
           </div>
         </>
       ) : (
-        <div className="pokemonList__loading">
-         
-        </div>
+        <div className="pokemonList__loading"></div>
       )}
+      <Pagination
+        gotoNextPage={nextPageUrl ? gotoNextPage : null}
+        gotoPrevPage={pervPageUrl ? gotoPrevPage : null}
+      />
     </>
   );
 }
