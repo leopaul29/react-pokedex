@@ -177,7 +177,7 @@ export default class Pokemon extends Component {
     return (
       <div className="pokemon">
         <div className="pokemon__header">
-          <div className="pokemon__headerLeft">{this.state.pokemonIndex}</div>
+          <div className="pokemon__headerLeft">N° {this.state.pokemonIndex}</div>
           <div className="pokemon__headerRight">
             {this.state.types.map((type) => (
               <Chip

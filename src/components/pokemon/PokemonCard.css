@@ -9,6 +9,10 @@
   perspective: 500px;
 }
 
+.pokemonCard__image {
+  width: 120px;
+}
+
 .pokemonCard__content {
   position: absolute;
   width: 100%;
